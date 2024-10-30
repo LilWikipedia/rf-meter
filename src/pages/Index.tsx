@@ -4,25 +4,14 @@ import SignalMeter from '../components/SignalMeter';
 import MPECalculator from '../components/MPECalculator';
 import SignalGraph from '../components/SignalGraph';
 import StatsPanel from '../components/StatsPanel';
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react";
 
 const Index = () => {
-  const { readings, currentReading, error } = useSignalStrength();
+  const { readings, currentReading } = useSignalStrength();
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         <h1 className="text-3xl font-bold text-gray-900">RF Meter Dashboard</h1>
-        
-        {error && (
-          <Alert variant="destructive">
-            <AlertCircle className="h-4 w-4" />
-            <AlertDescription>
-              {error}
-            </AlertDescription>
-          </Alert>
-        )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <SignalMeter reading={currentReading} />
