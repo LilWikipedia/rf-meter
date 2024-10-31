@@ -20,20 +20,20 @@ const StatsPanel: React.FC<StatsPanelProps> = ({ readings }) => {
   const stats = calculateStats();
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-lg">
-      <h2 className="text-xl font-semibold mb-4">Statistics</h2>
+    <div className="p-4">
+      <h2 className="text-xl font-bold text-win95-text mb-4">Statistics</h2>
       <div className="grid grid-cols-3 gap-4">
-        <div className="text-center">
-          <div className="text-sm text-gray-500">Average</div>
-          <div className="text-lg font-semibold">{stats.avg.toFixed(2)} dBm</div>
+        <div className="bg-win95-window p-2 shadow-win95-out">
+          <div className="text-sm text-win95-text">Average</div>
+          <div className="text-lg font-bold text-win95-text">{stats.avg.toFixed(2)} dBm</div>
         </div>
-        <div className="text-center">
-          <div className="text-sm text-gray-500">Minimum</div>
-          <div className="text-lg font-semibold">{stats.min.toFixed(2)} dBm</div>
+        <div className="bg-win95-window p-2 shadow-win95-out">
+          <div className="text-sm text-win95-text">Minimum</div>
+          <div className="text-lg font-bold text-win95-text">{stats.min.toFixed(2)} dBm</div>
         </div>
-        <div className="text-center">
-          <div className="text-sm text-gray-500">Maximum</div>
-          <div className="text-lg font-semibold">{stats.max.toFixed(2)} dBm</div>
+        <div className="bg-win95-window p-2 shadow-win95-out">
+          <div className="text-sm text-win95-text">Maximum</div>
+          <div className="text-lg font-bold text-win95-text">{stats.max.toFixed(2)} dBm</div>
         </div>
       </div>
     </div>

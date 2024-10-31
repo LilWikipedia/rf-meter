@@ -8,25 +8,32 @@ interface SignalGraphProps {
 
 const SignalGraph: React.FC<SignalGraphProps> = ({ readings }) => {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-lg">
-      <h2 className="text-xl font-semibold mb-4">Signal History</h2>
-      <div className="h-[200px] w-full">
+    <div className="p-4">
+      <h2 className="text-xl font-bold text-win95-text mb-4">Signal History</h2>
+      <div className="h-[200px] w-full bg-white shadow-win95-in p-2">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={readings}>
             <XAxis
               dataKey="timestamp"
               tickFormatter={(timestamp) => new Date(timestamp).toLocaleTimeString()}
               interval="preserveStartEnd"
+              stroke="#000080"
             />
-            <YAxis />
+            <YAxis stroke="#000080" />
             <Tooltip
               labelFormatter={(timestamp) => new Date(timestamp).toLocaleTimeString()}
               formatter={(value: number) => [`${value.toFixed(2)} dBm`, "Signal Strength"]}
+              contentStyle={{
+                backgroundColor: '#c0c0c0',
+                border: '2px solid #404040',
+                borderTop: '2px solid #ffffff',
+                borderLeft: '2px solid #ffffff',
+              }}
             />
             <Line
               type="monotone"
               dataKey="signalStrength"
-              stroke="#0EA5E9"
+              stroke="#000080"
               dot={false}
               strokeWidth={2}
             />
