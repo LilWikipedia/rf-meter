@@ -1,5 +1,5 @@
 # rf-meter
-**URL**: https://preview--rf-meter.gptengineer.run/
+**rf-meter**: https://rf-meter.gptengineer.run/
 
 ## built with
 ### - Vite
