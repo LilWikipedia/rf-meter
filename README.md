@@ -1,5 +1,8 @@
 # rf-meter
-**rf-meter**: https://rf-meter.gptengineer.run/
+use web browser to analyze radio frequency exposure, works best with firefox.
+UI designed to look win95/98.......rip
+
+[https://rf-meter.gptengineer.run/]
 
 ## built with
 ### - Vite
