@@ -13,6 +13,7 @@ const Index = () => {
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="bg-win95-window p-2 shadow-win95-out">
           <div className="bg-win95-title px-2 py-1 text-white font-bold mb-2" style={{ background: 'linear-gradient(90deg, #000080, #1084d0)' }}>
+
             RF Meter Dashboard
           </div>
           
