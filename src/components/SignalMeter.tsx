@@ -5,7 +5,21 @@ interface SignalMeterProps {
   reading: RFReading | null;
 }
 
-const SignalMeter: React.FC<SignalMeterProps> = ({ reading }) => {
+const SignalMeter: React.FC<SignalMeterProps> = ({ reading, isLoading, error }) => {
+  if (error) {
+    throw error;
+  }
+
+  if (isLoading) {
+    return (
+      <div className="p-4">
+        <h2 className="text-xl font-bold text-win95-text mb-4">Signal Strength</h2>
+        <div className="flex items-center justify-center h-40">
+          <div className="animate-pulse text-win95-text">Loading...</div>
+        </div>
+      </div>
+    );
+  }
   const signalStrength = reading?.signalStrength ?? 0;
   const normalizedStrength = Math.min(Math.abs(signalStrength) / 100, 1);
 
@@ -27,4 +41,4 @@ const SignalMeter: React.FC<SignalMeterProps> = ({ reading }) => {
   );
 };
 
-export default SignalMeter;
+export default React.memo(SignalMeter);

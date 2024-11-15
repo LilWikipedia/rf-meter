@@ -5,7 +5,21 @@ interface MPECalculatorProps {
   reading: RFReading | null;
 }
 
-const MPECalculator: React.FC<MPECalculatorProps> = ({ reading }) => {
+const MPECalculator: React.FC<MPECalculatorProps> = ({ reading, isLoading, error }) => {
+  if (error) {
+    throw error;
+  }
+
+  if (isLoading) {
+    return (
+      <div className="p-4">
+        <h2 className="text-xl font-bold text-win95-text mb-4">MPE Level</h2>
+        <div className="flex items-center justify-center h-20">
+          <div className="animate-pulse text-win95-text">Loading...</div>
+        </div>
+      </div>
+    );
+  }
   const mpe = reading?.mpe ?? 0;
   const isSafe = isSafeExposure(mpe);
 
@@ -38,4 +52,4 @@ const MPECalculator: React.FC<MPECalculatorProps> = ({ reading }) => {
   );
 };
 
-export default MPECalculator;
+export default React.memo(MPECalculator);
