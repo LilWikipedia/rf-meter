@@ -1,3 +1,4 @@
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -13,14 +14,11 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-
 jobs:
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    # https://github.com/base:: /rf-meter/
-
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,3 +41,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          github_token: ${{ secrets.RFTOKEN }}
+          base: /rf-meter/
