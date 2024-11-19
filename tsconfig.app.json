@@ -21,10 +21,10 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
 
-    "baseUrl": ".",
+    "baseUrl": "/rf-meter/",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/* "]
     }
   },
-  "include": ["src"]
+  "include": ["src","dist"]
 }
