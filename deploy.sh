@@ -4,4 +4,4 @@
 npm run build
 
 # Deploy to GitHub Pages
-gh-pages -d docs
+gh-pages -d 

@@ -1,12 +1,15 @@
 {
-  {
-    "name": "rf-meter",
-    "version": "0.0.0",
-    "scripts": {
-      "dev": "vite",
-      "build": "vite build",
-      "deploy": "./deploy.sh",
-      
+  "name": "vite_react_shadcn_ts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
 
   "dependencies": {
     "@capacitor/core": "^6.1.2",
