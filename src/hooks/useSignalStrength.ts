@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { RFReading, calculateMPE } from '../utils/rfCalculations';
 import { useToast } from "@/components/ui/use-toast";
+import { IsAny } from 'react-hook-form';
+import  updateInterval  from '../components/UpdateIntervalSettings';
 
-export const useSignalStrength = () => {
+export const useSignalStrength = (updateInterval?: number) => {
   const [readings, setReadings] = useState<RFReading[]>([]);
   const [currentReading, setCurrentReading] = useState<RFReading | null>(null);
   const { toast } = useToast();
@@ -10,6 +12,7 @@ export const useSignalStrength = () => {
   useEffect(() => {
     // Check if we can use the Network Information API
     if ('connection' in navigator) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const connection = (navigator as any).connection;
       
       const updateSignalStrength = () => {
@@ -21,6 +24,7 @@ export const useSignalStrength = () => {
           signalStrength = connection.signalStrength;
         } else if ('mozConnection' in navigator) {
           // Firefox-specific API
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const mozConnection = (navigator as any).mozConnection;
           if (mozConnection && mozConnection.signalStrength) {
             signalStrength = mozConnection.signalStrength;
@@ -51,17 +55,16 @@ export const useSignalStrength = () => {
         setCurrentReading(newReading);
         setReadings(prev => [...prev.slice(-50), newReading]); // Keep last 50 readings
       };
-
       // Update every second
-      const interval = setInterval(updateSignalStrength, 1000);
-
+      const interval = setInterval(updateSignalStrength, updateInterval);
       // Listen for connection changes
       connection.addEventListener('change', updateSignalStrength);
-
+      
       return () => {
         clearInterval(interval);
         connection.removeEventListener('change', updateSignalStrength);
       };
+
     } else {
       // Show toast if APIs are not available
       toast({
