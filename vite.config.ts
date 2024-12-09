@@ -1,14 +1,22 @@
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import react from "@vitejs/plugin-react-swc";
+import path from "path";
+import { defineConfig } from "vite";
 
-export default defineConfig({
-  base: '/rf-meter/',
+
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => ({
   server: {
-    host: '0.0.0.0',
+    host: "::",
     port: 8080,
   },
-  plugins: [react()],
-  build: {
-    outDir: './dists/',
+  plugins: [
+    react(),
+    
+  ].filter(Boolean),
+  base: '/rf-meter/',
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
-});
+}));
