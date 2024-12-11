@@ -5,11 +5,15 @@ UI designed to look win95/98.......rip
 # Quick Setup
 
 ### if you have node installed then clone this repository
-### and run `npm run dev`
+### and run
 
-or
+ `npm run dev`
 
-### fork this, create a codespace, and then run `npm run dev`
+or if you do NOT have node installed you can:
+
+### fork this, create a codespace, and then run
+
+ `npm run dev`
 
 
 
