@@ -14,12 +14,6 @@ or
 
 
 
-## built with
-* Vite
-* TypeScript
-* React
-* shadcn-ui
-* Tailwind
-* & node for the backend 
+Disclaimer: Not all browsers work, if your browser is not compatible you will get a notification saying such and the app will use mock data to demonstrate its use.
 
 
