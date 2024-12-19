@@ -2,14 +2,22 @@
 use web browser to analyze radio frequency exposure, works best with firefox.
 UI designed to look win95/98.......rip
 
+# Quick Setup
+
+### if you have node installed then clone this repository
+### and run
+
+ `npm run dev`
+
+or if you do NOT have node installed you can:
+
+### fork this, create a codespace, and then run
+
+ `npm run dev`
 
 
-## built with
-* Vite
-* TypeScript
-* React
-* shadcn-ui
-* Tailwind
-* & node for the backend 
+
+
+Disclaimer: Not all browsers work, if your browser is not compatible you will get a notification saying such and the app will use mock data to demonstrate its use.
 
 
