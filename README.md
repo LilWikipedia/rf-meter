@@ -1,12 +1,16 @@
 # rf-meter
 use web browser to analyze radio frequency exposure, works best with firefox.
 UI designed to look win95/98.......rip
+
+MPE = Maximum permissable exposure
 ***
-# Quick Setup
+
+# Usage:
 
 Use the link in the description
 
-OR
+# Quick Setup:
+
 if you have node installed then clone this repository and run
 
  `npm run dev`
